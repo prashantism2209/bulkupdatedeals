@@ -46,16 +46,13 @@ const dealsData = [];
     await page.goto("https://dineout-girf-deals-dashboard.swiggyops.de/admin/TicketCreation/deal_edit?r_id="+deal.R_ID+"&tl_id="+deal.TL_ID, {
       waitUntil: "domcontentloaded",
     });
-  }
-
-
-await page.evaluate(() => {
-  document.querySelector("#min_quantity").value=1;
-});
+ 
+    await page.evaluate(() => {
+      document.querySelector("#min_quantity").value=1;
+    });
       
     await page.click('#save_btn');
-
     await page.waitForNavigation();
-
+ }
   // // Close the browser
    await browser.close();
